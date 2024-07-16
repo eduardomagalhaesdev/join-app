@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="produto">
+      <h2 data-cy="produtoDetailsHeading"><span jhiTranslate="joinAppApp.produto.detail.title">Produto</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ produto.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="joinAppApp.produto.nome">Nome</span></dt>
+        <dd>
+          <span>{{ produto.nome }}</span>
+        </dd>
+        <dt><span jhiTranslate="joinAppApp.produto.quantidade">Quantidade</span></dt>
+        <dd>
+          <span>{{ produto.quantidade }}</span>
+        </dd>
+        <dt><span jhiTranslate="joinAppApp.produto.categoria">Categoria</span></dt>
+        <dd>
+          <div *ngIf="produto.categoria">
+            <a [routerLink]="['/categoria', produto.categoria.id, 'view']">{{ produto.categoria.nome }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/produto', produto.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

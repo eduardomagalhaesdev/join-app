@@ -1,0 +1,8 @@
+{
+  "generator-jhipster:7.9.4": {
+    "promptValues": {
+      "packageName": "br.com.join",
+      "nativeLanguage": "pt-br"
+    }
+  }
+}
